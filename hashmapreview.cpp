@@ -2,8 +2,7 @@
 // Created by MacBook on 03.02.18.
 //
 
-#ifndef HASHTABLE_HASH_MAP_H
-#define HASHTABLE_HASH_MAP_H
+#pragma once
 
 #include <stdexcept>
 #include <iostream>
@@ -384,5 +383,3 @@ public:
     }
 };
 
-
-#endif //HASHTABLE_HASH_MAP_H
