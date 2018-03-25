@@ -20,14 +20,14 @@ private:
     size_t sizeVectorMap;
 
 public:
-    HashMap<KeyType, ValueType, Hash>() {
+    HashMap() {
         clear();
         sizeMap = 0;
         sizeVectorMap = firstSizeMap;
         Map.resize(sizeVectorMap);
     }
 
-    HashMap<KeyType, ValueType, Hash> (Hash _hasher)
+    HashMap(Hash _hasher)
     : sizeMap(0)
     , sizeVectorMap(firstSizeMap)
     , hasher(_hasher)
@@ -37,7 +37,7 @@ public:
     }
 
     template<typename Iter>
-    HashMap<KeyType, ValueType, Hash>(Iter begin, Iter end)
+    HashMap(Iter begin, Iter end)
     : sizeMap(0)
     , sizeVectorMap(firstSizeMap)
     {
@@ -50,7 +50,7 @@ public:
         }
     }
 
-    HashMap<KeyType, ValueType, Hash>(std::initializer_list<std::pair<const KeyType, ValueType>> init)
+    HashMap(std::initializer_list<std::pair<const KeyType, ValueType>> init)
     : sizeMap(0)
     , sizeVectorMap(firstSizeMap)
     {
@@ -79,7 +79,7 @@ public:
         }
     }
 
-    void insert(std::pair<KeyType, ValueType> value) {
+    void insert(std::pair<KeyType, ValueType> & value) {
         if (find(value.first) != end()) {
             return;
         }
@@ -91,7 +91,7 @@ public:
         return;
     }
 
-    void erase(KeyType key) {
+    void erase(KeyType & key) {
         size_t id = hasher(key) % sizeVectorMap;
         auto delpair = Map[id].begin();
         while (delpair != Map[id].end()) {
