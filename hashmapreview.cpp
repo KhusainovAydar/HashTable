@@ -86,7 +86,7 @@ public:
         return;
     }
 
-    void erase(KeyType & key) {
+    void erase(const KeyType & key) {
         size_t id = hasher(key) % sizeVectorMap;
         auto delpair = Map[id].begin();
         while (delpair != Map[id].end()) {
