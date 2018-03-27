@@ -53,11 +53,7 @@ public:
     : sizeMap(0)
     , sizeVectorMap(firstSizeMap)
     {
-        clear();
-        Map.resize(sizeVectorMap);
-        for (auto & t : init) {
-            insert(t);
-        }
+        HashMap(init.begin(), init.end());
     }
 
     size_t size() const {
@@ -78,7 +74,7 @@ public:
         }
     }
 
-    void insert(std::pair<KeyType, ValueType> & value) {
+    void insert(const std::pair<KeyType, ValueType> & value) {
         if (find(value.first) != end()) {
             return;
         }
